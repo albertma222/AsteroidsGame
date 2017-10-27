@@ -44,7 +44,12 @@ public void moverocket(Spaceship rocket) {
   if(keyDPressed == true)
     rocket.turn(3);
   if(keySpacePressed == true) {
-    
+    rocket.setX((int)Math.random()*200);
+    rocket.setY((int)Math.random()*200);
+    rocket.setDirectionX(0);
+    rocket.setDirectionY(0);
+    rocket.setPointDirection((int)Math.random()*200);
+    keySpacePressed = false;
   }
   
 }
