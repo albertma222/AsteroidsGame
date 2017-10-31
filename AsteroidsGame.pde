@@ -24,6 +24,11 @@ public void draw()
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i].show();
   }
+  stroke(255);
+  fill(255);
+  textSize(20);
+  text("Current Position (X,Y): (" + rocket.getX() + ", " + rocket.getY() + ")", 10, 30);
+  text("Current Speed (X,Y): (" + ((int)rocket.getDirectionX()*100/100.0) + ", " + ((int)rocket.getDirectionY()*100/100.0) + ")", 10, 50);
 }
 
 public void keyPressed() {
@@ -47,16 +52,16 @@ public void keyReleased() {
 public void moverocket(Spaceship rocket) {
   
   if(keyWPressed == true)
-    rocket.accelerate(0.1);
+    rocket.accelerate(0.15);
     
   if(keyAPressed == true)
-    rocket.turn(-3);
+    rocket.turn(-5);
     
   if(keySPressed == true)
-    rocket.accelerate(-0.05);
+    rocket.accelerate(-0.1);
     
   if(keyDPressed == true)
-    rocket.turn(3);
+    rocket.turn(5);
     
   if(keyQPressed == true) {
     
@@ -68,7 +73,9 @@ public void moverocket(Spaceship rocket) {
     keyQPressed = false;
     
   }
-  if(keySpacePressed == true)
-  rocket.accelerate(0.1);
-   
+/*  if(keySpacePressed == true)
+  
+    rocket.setDirectionX(0);
+    rocket.setDirectionY(0);
+    keySpacePressed = false; */
 }
