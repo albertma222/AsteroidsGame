@@ -54,13 +54,13 @@ public void keyReleased() {
 public void moverocket(Spaceship rocket) {
   
   if(keyWPressed == true)
-    rocket.accelerate(0.12);
+    rocket.accelerate(0.1);
     
   if(keyAPressed == true)
     rocket.turn(-5);
     
   if(keySPressed == true)
-    rocket.accelerate(-0.12);
+    rocket.accelerate(-0.1);
     
   if(keyDPressed == true)
     rocket.turn(5);

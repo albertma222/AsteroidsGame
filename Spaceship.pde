@@ -5,10 +5,11 @@ class Spaceship extends Floater
 {   
   public Spaceship() {
     corners = 4;
+    rocketCorners = 8;
     xCorners = new int[4];
     yCorners = new int[4];
-    rocketCornersX = new int[7];
-    rocketCornersY = new int[7];
+    rocketCornersX = new int[8];
+    rocketCornersY = new int[8];
     xCorners[0] = 16;
     yCorners[0] = 0;  
     xCorners[1] = -8;
@@ -23,14 +24,16 @@ class Spaceship extends Floater
     rocketCornersY[1] = -6;
     rocketCornersX[2] = -10;
     rocketCornersY[2] = -4;
-    rocketCornersX[3] = 
-    rocketCornersY[3] = 
-    rocketCornersX[4] = 
-    rocketCornersY[4] = 
-    rocketCornersX[5] = 
-    rocketCornersY[5] = 
-    rocketCornersX[6] = 
-    rocketCornersY[6] = 
+    rocketCornersX[3] = -16;
+    rocketCornersY[3] = 0;
+    rocketCornersX[4] = -10;
+    rocketCornersY[4] = 4;
+    rocketCornersX[5] = -12;
+    rocketCornersY[5] = 6;
+    rocketCornersX[6] = -8;
+    rocketCornersY[6] = 8;
+    rocketCornersX[7] = -2;
+    rocketCornersY[7] = 0;
     myColor = color(255);
     myCenterX = 250;
     myCenterY = 250;
@@ -71,13 +74,17 @@ class Spaceship extends Floater
       vertex(xCorners[nI], yCorners[nI]);
     }
     endShape(CLOSE);
-    if(keyWPressed == true)
+   
+    if(keyWPressed == true) {
     fill(255, 0, 0);
+    strokeWeight(2);
+    stroke(255, 140, 20);
     beginShape();
     for(int i = 0; i < rocketCorners; i++) {
       vertex(rocketCornersX[i], rocketCornersY[i]);
     }
     endShape(CLOSE);
+    }
     
     //"unrotate" and "untranslate" in reverse order
     rotate(-1*dRadians);
