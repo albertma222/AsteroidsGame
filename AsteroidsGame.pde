@@ -6,6 +6,7 @@ boolean keySPressed = false;
 boolean keyDPressed = false;
 boolean keyQPressed = false;
 boolean keySpacePressed = false;
+boolean mouseIsPressed = false;
 
 public void setup() 
 {
@@ -40,6 +41,7 @@ public void keyPressed() {
   if(key == 'd') {keyDPressed = true;}
   if(key == ' ') {keySpacePressed = true;}
   if(key == 'q') {keyQPressed = true;}
+  if(mousePressed) {mouseIsPressed = true;}
 }
 
 public void keyReleased() {
@@ -47,8 +49,9 @@ public void keyReleased() {
   if(key == 'a') {keyAPressed = false;}
   if(key == 's') {keySPressed = false;}
   if(key == 'd') {keyDPressed = false;}
-  if(key == 'q') {keyQPressed = false;}
   if(key == ' ') {keySpacePressed = false;}
+  if(key == 'q') {keyQPressed = false;}
+  if(mousePressed) {mouseIsPressed = false;}
 }
 
 public void moverocket(Spaceship rocket) {
