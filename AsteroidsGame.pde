@@ -1,4 +1,5 @@
-Stars[] galaxy = new Stars[400];
+Stars[] galaxy = new Stars[500];
+Asteroid[] rocks = new Asteroid[20];
 Spaceship rocket = new Spaceship();
 boolean keyWPressed = false;
 boolean keyAPressed = false;
@@ -10,9 +11,12 @@ boolean mouseIsPressed = false;
 
 public void setup() 
 {
-  size(1200, 675);
+  size(1200, 700);
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i] = new Stars();
+  }
+  for(int i = 0; i < rocks.length; i++) {
+    rocks[i] = new Asteroid();
   }
 }
 
@@ -21,6 +25,10 @@ public void draw()
   background(0);
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i].show();
+  }
+  for(int i = 0; i < rocks.length; i++) {
+    rocks[i].show();
+    rocks[i].move();
   }
   rocket.move();
   rocket.show();
