@@ -1,4 +1,4 @@
-private int rocketCorners;
+private int rocketCorners, MAX_SPEED;
 private int[] rocketCornersX, rocketCornersY;
 
 class Spaceship extends Floater
@@ -40,6 +40,20 @@ class Spaceship extends Floater
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
+    MAX_SPEED = 8;
+  }
+  
+  public void move() {
+    if(myDirectionX > MAX_SPEED)
+      myDirectionX = MAX_SPEED;
+    if(myDirectionX < -MAX_SPEED)
+      myDirectionX = -MAX_SPEED;
+    if(myDirectionY > MAX_SPEED)
+      myDirectionY = MAX_SPEED;
+    if(myDirectionY < -MAX_SPEED)
+      myDirectionY = -MAX_SPEED;
+      
+    super.move();
   }
   
   public void setX(int x) {myCenterX = x;}  

@@ -1,5 +1,5 @@
 Stars[] galaxy = new Stars[500];
-Asteroid[] rocks = new Asteroid[20];
+Asteroid[] rocks = new Asteroid[10];
 Spaceship rocket = new Spaceship();
 boolean keyWPressed = false;
 boolean keyAPressed = false;
@@ -65,13 +65,13 @@ public void keyReleased() {
 public void moverocket(Spaceship rocket) {
   
   if(keyWPressed == true)
-    rocket.accelerate(0.1);
+    rocket.accelerate(0.15);
     
   if(keyAPressed == true)
     rocket.turn(-5);
     
   if(keySPressed == true)
-    rocket.accelerate(-0.1);
+    rocket.accelerate(-0.15);
     
   if(keyDPressed == true)
     rocket.turn(5);
