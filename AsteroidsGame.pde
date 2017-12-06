@@ -1,5 +1,6 @@
 Stars[] galaxy = new Stars[500];
-Asteroid[] rocks = new Asteroid[10];
+Asteroid[] rocks = new Asteroid[20];
+Bullet laser = new Bullet();
 Spaceship rocket = new Spaceship();
 boolean keyWPressed = false;
 boolean keyAPressed = false;
@@ -23,6 +24,7 @@ public void setup()
 public void draw() 
 {
   background(0);
+  laser.show();
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i].show();
   }
