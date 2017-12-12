@@ -1,6 +1,6 @@
 Stars[] galaxy = new Stars[500];
 Asteroid[] rocks = new Asteroid[20];
-Bullet laser = new Bullet();
+ArrayList <Bullet> laser = new ArrayList <Bullet>();
 Spaceship rocket = new Spaceship();
 boolean keyWPressed = false;
 boolean keyAPressed = false;
@@ -24,9 +24,12 @@ public void setup()
 public void draw() 
 {
   background(0);
-  laser.show();
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i].show();
+  }
+  for(int i = 0; i < laser.size(); i++) {
+  	laser.get(i).show();
+  	laser.get(i).move();
   }
   for(int i = 0; i < rocks.length; i++) {
     rocks[i].show();
@@ -77,6 +80,9 @@ public void moverocket(Spaceship rocket) {
     
   if(keyDPressed == true)
     rocket.turn(5);
+
+  if(keySpacePressed == true)
+  	laser.add(new Bullet(rocket));
     
   if(keyQPressed == true) {
     
@@ -88,9 +94,4 @@ public void moverocket(Spaceship rocket) {
     keyQPressed = false;
     
   }
-/*  if(keySpacePressed == true)
-  
-    rocket.setDirectionX(0);
-    rocket.setDirectionY(0);
-    keySpacePressed = false; */
 }
