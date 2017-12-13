@@ -1,7 +1,8 @@
 Stars[] galaxy = new Stars[500];
-Asteroid[] rocks = new Asteroid[20];
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 ArrayList <Bullet> laser = new ArrayList <Bullet>();
 Spaceship rocket = new Spaceship();
+int bulletlimit = 0;
 boolean keyWPressed = false;
 boolean keyAPressed = false;
 boolean keySPressed = false;
@@ -16,8 +17,8 @@ public void setup()
   for(int i = 0; i < galaxy.length; i++) {
     galaxy[i] = new Stars();
   }
-  for(int i = 0; i < rocks.length; i++) {
-    rocks[i] = new Asteroid();
+  for(int i = 0; i < 30; i++) {
+    rocks.add(new Asteroid());
   }
 }
 
@@ -31,20 +32,10 @@ public void draw()
   	laser.get(i).show();
   	laser.get(i).move();
   }
-  for(int i = 0; i < rocks.length; i++) {
-    rocks[i].show();
-    rocks[i].move();
-  }
+  collision(rocks);
   rocket.move();
   rocket.show();
   moverocket(rocket);
-  stroke(255);
-  fill(255);
-  textSize(20);
-  text("Current Position (X,Y): (" + rocket.getX() + ", " + rocket.getY() + ")", 10, 25);
-  text("Current Speed (X): " + (int)(100 * rocket.getDirectionX())/100.0 + " MM/HR", 10, 50);
-  text("Current Speed (Y): " + (int)(100 * rocket.getDirectionY())/100.0 + " MM/HR", 10, 75);
-  text("Current Direction: " + abs((float)rocket.getPointDirection() % 360) + "°", 10, 100);
 }
 
 public void keyPressed() {
@@ -93,5 +84,31 @@ public void moverocket(Spaceship rocket) {
     rocket.setPointDirection((int)(Math.random()*181));
     keyQPressed = false;
     
+  }
+}
+
+public void collision(ArrayList <Asteroid> asteroids) {
+  for(Asteroid rock : asteroids) {
+    rock.show();
+    rock.move();
+  }
+
+  for(int i = 0; i < asteroids.size(); i++) {
+    if(asteroids.get(i).distance(rocket) <= 12) {
+      asteroids.remove(i);
+      break;
+    }
+  }
+
+  for(int i = 0; i < asteroids.size(); i++) {
+
+    for(int nI = 0; nI < laser.size(); nI++) {
+
+      if(asteroids.get(i).distance(laser.get(nI)) <= 12) {
+        laser.remove(nI);
+        asteroids.remove(i);
+        break;
+      }
+    }
   }
 }

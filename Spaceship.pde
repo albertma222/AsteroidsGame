@@ -40,7 +40,7 @@ class Spaceship extends Floater
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
-    MAX_SPEED = 8;
+    MAX_SPEED = 5;
   }
   
   public void move() {

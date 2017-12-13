@@ -43,4 +43,8 @@ class Asteroid extends Floater {
     turn(setSpeed);
     super.move();
   }
+
+  public float distance(Floater thing) {
+    return dist((float)myCenterX, (float)myCenterY, (float)thing.getX(), (float)thing.getY());
+  }
 }
